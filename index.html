@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cometary Close Calls: Near-Earth Objects in Motion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/comet-visualization.css">
+</head>
+<body>
+  <div class="container">
+    <header class="main-header">
+      <h1>Cometary Close Calls: Near-Earth Objects in Motion</h1>
+      <p class="subtitle">A Celestial Symphony of Cosmic Wanderers</p>
+    </header>
+    
+    <div id="dashboard" class="control-dashboard">
+      <h2>Comet Visualization Controls</h2>
+      
+      <div class="controls-container">
+        <div class="control-section filter-section">
+          <h3>Orbit Filter</h3>
+          <div class="control-group">
+            <div class="control-label">
+              <label for="period-filter">Period Filter</label>
+              <span class="control-value" id="period-value">All comets</span>
+            </div>
+            <input type="range" id="period-filter" min="0" max="100" step="5" value="100">
+            <div class="control-labels">
+              <span>Short</span>
+              <span>Long</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="control-section time-section">
+          <h3>Time Simulation</h3>
+          <div class="time-controls-grid">
+            <div class="grid-item">
+              <div class="control-row button-row">
+                <button id="toggleSimulation" class="control-button">
+                  <span class="button-icon">▶</span>
+                  Start Simulation
+                </button>
+                <button id="resetSimulation" class="control-button">
+                  <span class="button-icon">↺</span>
+                  Reset
+                </button>
+              </div>
+              <div class="control-row">
+                <label>Speed: 
+                  <input type="range" id="simulationSpeed" min="1" max="10" value="5" step="1" />
+                </label>
+                <span class="value-display" id="speedValue">5</span>×
+              </div>
+            </div>
+            
+            <div class="grid-item">
+              <div class="control-row date-display">
+                <span>Current date: </span>
+                <span id="currentDate">2023-01-01</span>
+              </div>
+              <div class="control-row">
+                <label>Timeline: </label>
+                <input type="range" id="dateSlider" min="0" max="1095" value="0" step="1" class="full-width-slider" />
+              </div>
+              <div class="control-row year-labels">
+                <span class="date-label">2023</span>
+                <span class="date-label">2024</span>
+                <span class="date-label">2025</span>
+                <span class="date-label">2026</span>
+              </div>
+            </div>
+            
+            <div class="grid-item events-column">
+              <h4>Perihelion Events</h4>
+              <div id="perihelionEvents" class="events-panel">
+                <div class="no-events-message">No perihelion events currently</div>
+                <!-- Perihelion events will be dynamically added here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p class="hint-text">✨ Hover over a comet for details ✨</p>
+    </div>
+    
+    <div id="viz" class="visualization-container"></div>
+    
+    <div class="description">
+      <h2>About this Celestial Symphony</h2>
+      <p>Welcome to a mesmerizing journey through the cosmic dance of comets in our solar system. This visualization transforms raw astronomical data into a living, breathing work of art that reveals the hidden patterns and rhythms of our celestial neighborhood.</p>
+
+      <p>At the heart of this cosmic ballet lies Earth, our home planet, surrounded by a symphony of comets moving in their eternal orbits. Each comet tells its own story through a carefully crafted visual language:</p>
+      
+      <ul>
+        <li><strong class="highlight">The Dance of Distance:</strong> Concentric rings ripple outward from Earth, each representing a different distance from the Sun. These rings form the stage upon which our celestial performers move.</li>
+        <li><strong class="highlight">The Language of Light:</strong> A vibrant spectrum of colors paints each comet's journey, from the quick, energetic blues of short-period comets to the deep, mysterious purples of their long-period cousins.</li>
+        <li><strong class="highlight">The Poetry of Motion:</strong> Each comet's tail, like a cosmic brushstroke, paints the sky with particles pushed by the solar wind, creating ephemeral trails that tell the story of their passage.</li>
+        <li><strong class="highlight">The Rhythm of Time:</strong> As time flows forward, watch as these celestial dancers move in their carefully choreographed orbits, some completing their journey in mere years, others taking centuries to return.</li>
+      </ul>
+      
+      <p>This visualization is more than just a scientific tool—it's a window into the cosmic ballet that has been playing out for billions of years. It reveals the hidden connections between these celestial wanderers and our own planet, showing us how we are all part of the same cosmic dance.</p>
+
+      <p><strong class="highlight">Interactive Exploration:</strong></p>
+      <ul>
+        <li><strong class="highlight">The Cosmic Conductor:</strong> Take control of time itself, speeding up or slowing down the celestial dance to witness the grand patterns of orbital motion.</li>
+        <li><strong class="highlight">The Celestial Spotlight:</strong> Hover over any comet to reveal its unique story—its name, its journey, and when it will next grace our cosmic neighborhood.</li>
+        <li><strong class="highlight">The Cosmic Filter:</strong> Focus on specific aspects of the dance by filtering comets based on their orbital periods, revealing different layers of the celestial symphony.</li>
+      </ul>
+
+      <p>This visualization represents a unique fusion of art and science, where data becomes poetry and numbers transform into a cosmic ballet. It's not just a chart or a graph—it's a living, breathing representation of the dynamic nature of our solar system, where each comet plays its part in the grand cosmic symphony.</p>
+
+      <p>As you explore this visualization, remember that you're not just looking at data points—you're witnessing the eternal dance of celestial bodies that have been moving through space since before life began on Earth. Each comet's journey is a story written in the language of gravity and time, and this visualization gives you a front-row seat to this cosmic performance.</p>
+    </div>
+  </div>
+  
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html> 
